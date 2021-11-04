@@ -18,7 +18,7 @@
         <EditText
             android:id="@+id/numberEditText"
             android:layout_width="match_parent"
-            android:layout_height="90sp"
+            android:layout_height="wrap_content"
             android:autoSizeTextType="uniform"
             android:textSize="65sp"
             android:inputType="none"
