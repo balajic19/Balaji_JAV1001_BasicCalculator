@@ -74,21 +74,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button buttonDecimal = findViewById(R.id.buttonDecimal);
         editTextString = String.valueOf(editTextTV.getText());
 
-//        Letting the decimal value to be clicked only once
-
-        if(editTextString.contains(".")){
-            int indexOfPriorChar = editTextString.indexOf('.') - 1;
-            if (indexOfPriorChar<0){ indexOfPriorChar = 0;}
-
-            if (Character.isDigit(editTextString.charAt(indexOfPriorChar)) && editTextString.charAt(indexOfPriorChar) != '.'){
-                buttonDecimal.setEnabled(true);
-            }
-            else{
-                buttonDecimal.setEnabled(false);
-            }
-        } else{
+        if (view.getId() == R.id.buttonDecimal){
+            buttonDecimal.setEnabled(false);
+        }else if(view.getId() == R.id.buttonAddition || view.getId() == R.id.buttonSubtract ||
+                view.getId() == R.id.buttonMultiply || view.getId() == R.id.buttonDivide ||
+                view.getId() == R.id.buttonPercentile){
             buttonDecimal.setEnabled(true);
+
         }
+
+//        Letting the decimal value to be clicked only once
+//        if(editTextString.contains(".")){
+//            int indexOfPriorChar = editTextString.indexOf('.') - 1;
+//            if (indexOfPriorChar<0){ indexOfPriorChar = 0;}
+//
+//            if (Character.isDigit(editTextString.charAt(indexOfPriorChar)) && editTextString.charAt(indexOfPriorChar) != '.'){
+//                buttonDecimal.setEnabled(true);
+//            }
+//            else{
+//                buttonDecimal.setEnabled(false);
+//            }
+//        } else{
+//            buttonDecimal.setEnabled(true);
+//        }
 
 //Calculate when buttons are clicked
         switch(view.getId()){
@@ -134,7 +142,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonDecimal:
-                editTextString += ".";
+                // if prevCHar != digit
+                //      0 first
+                char prev = editTextString.length() > 0 ?
+                        editTextString.charAt(editTextString.length() - 1) : '\0';
+                if (Character.isDigit(prev)){
+                    editTextString += ".";
+                }else{
+                    editTextString += "0.";
+                }
                 editTextTV.setText(editTextString);
                 break;
 
@@ -163,22 +179,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.buttonPercentile:
-//                if (!editTextString.isEmpty() && Character.isDigit(editTextString.charAt(editTextString.length()-1))){
-//                    editTextString += "%";
-//                    editTextTV.setText(editTextString);
-//                    editTextTV.setText(String.valueOf(Float.parseFloat(String.valueOf(editTextString.charAt(0))) / 100));
-//                }
                 editTextString += "%";
                 editTextTV.setText(editTextString);
                 break;
             case R.id.buttonNegation:
-                if (editTextString.charAt(0) == '-'){
+                if (editTextString.charAt(0) == '-' && editTextString.length() == 2){
                     editTextString = editTextString.substring(1);
                 } else{
                     if (Character.isDigit(editTextString.charAt(editTextString.length()-1)) && editTextString.length() == 1){
                         editTextString = "-" + editTextString;
                     }
                 }
+                editTextTV.setText(editTextString);
                 break;
 
             case R.id.buttonAC:
@@ -188,6 +200,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.buttonResult:
                 BigDecimal result = updateResult(editTextString);
+                /*
+                    if result mod 1 == 0
+                        result = int
+                    Integer.parseInt()
+                    Float.parseFloat()
+
+                 */
                 int roundOffSum = result.intValue();
 
                 if(result.equals(roundOffSum)){

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@android:style/Widget.DeviceDefault.Light.ScrollView"
@@ -9,9 +9,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true">
+        android:weightSum="10"
+        android:gravity="bottom">
 
         <!--        Row to insert numbers-->
         <EditText
@@ -20,7 +21,9 @@
             android:layout_height="90sp"
             android:autoSizeTextType="uniform"
             android:textSize="65sp"
-            android:inputType="numberDecimal|numberSigned"/>
+            android:inputType="none"
+            android:layout_weight="5"
+            android:textIsSelectable="true"/>
 
         <!--        1st row-->
         <LinearLayout
@@ -45,10 +48,10 @@
                 android:layout_width="65sp"
                 android:layout_height="65sp"
                 android:layout_marginEnd="30sp"
-                android:text="+/-"
-                android:textSize="20sp"
-                android:textColor="@color/black"
                 android:backgroundTint="#CACACA"
+                android:text="+/-"
+                android:textColor="@color/black"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <Button
@@ -66,10 +69,10 @@
                 android:id="@+id/buttonDivide"
                 android:layout_width="65sp"
                 android:layout_height="65sp"
-                android:text="/"
-                android:textSize="20sp"
-                android:textColor="@color/white"
                 android:backgroundTint="#FFC300"
+                android:text="/"
+                android:textColor="@color/white"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -277,4 +280,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
