@@ -1,6 +1,6 @@
 # Balaji_JAV1001_BasicCalculator
 
-You can find the code [here](https://github.com/balajic19/Balaji_JAV1001-ScoreKeeper.git) to clone.
+You can find the code [here](https://github.com/balajic19/Balaji_JAV1001_BasicCalculator.git) to clone.
 
 -  Name: Balaji Chandupatla  
 -  Student Number: A00245077  
