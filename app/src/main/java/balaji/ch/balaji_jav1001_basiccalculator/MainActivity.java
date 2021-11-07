@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button buttonEight = findViewById(R.id.buttonEight);
         Button buttonNine = findViewById(R.id.buttonNine);
         Button buttonDecimal = findViewById(R.id.buttonDecimal);
+        Button buttonPower = findViewById(R.id.buttonPower);
 
         Button buttonAddition = findViewById(R.id.buttonAddition);
         Button buttonSubtract = findViewById(R.id.buttonSubtract);
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonEight.setOnClickListener(this);
         buttonNine.setOnClickListener(this);
         buttonDecimal.setOnClickListener(this);
+        buttonPower.setOnClickListener(this);
 
         buttonAddition.setOnClickListener(this);
         buttonSubtract.setOnClickListener(this);
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button buttonDecimal = findViewById(R.id.buttonDecimal);
         editTextString = String.valueOf(editTextTV.getText());
 
+//        Making the decimal value to be inserted only once 
         if (view.getId() == R.id.buttonDecimal){
             buttonDecimal.setEnabled(false);
         }else if(view.getId() == R.id.buttonAddition || view.getId() == R.id.buttonSubtract ||
@@ -82,21 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             buttonDecimal.setEnabled(true);
 
         }
-
-//        Letting the decimal value to be clicked only once
-//        if(editTextString.contains(".")){
-//            int indexOfPriorChar = editTextString.indexOf('.') - 1;
-//            if (indexOfPriorChar<0){ indexOfPriorChar = 0;}
-//
-//            if (Character.isDigit(editTextString.charAt(indexOfPriorChar)) && editTextString.charAt(indexOfPriorChar) != '.'){
-//                buttonDecimal.setEnabled(true);
-//            }
-//            else{
-//                buttonDecimal.setEnabled(false);
-//            }
-//        } else{
-//            buttonDecimal.setEnabled(true);
-//        }
 
 //Calculate when buttons are clicked
         switch(view.getId()){
@@ -142,8 +130,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonDecimal:
-                // if prevCHar != digit
-                //      0 first
                 char prev = editTextString.length() > 0 ?
                         editTextString.charAt(editTextString.length() - 1) : '\0';
                 if (Character.isDigit(prev)){
@@ -192,6 +178,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 editTextTV.setText(editTextString);
                 break;
+            case R.id.buttonPower:
+                editTextString += "^";
+                editTextTV.setText(editTextString);
+                break;
 
             case R.id.buttonAC:
                 editTextString = "";
@@ -200,19 +190,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.buttonResult:
                 BigDecimal result = updateResult(editTextString);
-                /*
-                    if result mod 1 == 0
-                        result = int
-                    Integer.parseInt()
-                    Float.parseFloat()
-
-                 */
                 int roundOffSum = result.intValue();
 
                 if(result.equals(roundOffSum)){
                     editTextTV.setText(String.valueOf(roundOffSum));
                 }else{
                     editTextTV.setText(String.valueOf(result));
+                    findViewById(R.id.buttonDecimal).setEnabled(false);
                 }
                 break;
             default:
@@ -247,6 +231,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     String tempString = String.valueOf(stackElements.pop());
                     stackElements.push(new BigDecimal(tempString + "." + currentValue.toString()));
+                }else if(operator=='^'){
+                    stackElements.push((stackElements.pop().pow(currentValue.intValue())));
                 }
                 currentValue = BigDecimal.valueOf(0);
                 operator = charArray[i];
