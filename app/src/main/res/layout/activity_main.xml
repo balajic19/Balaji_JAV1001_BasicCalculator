@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@android:style/Widget.DeviceDefault.Light.ScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -41,7 +40,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:backgroundTint="#CACACA"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonNegation"
@@ -52,7 +52,8 @@
                 android:text="+/-"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonPercentile"
@@ -63,7 +64,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:backgroundTint="#CACACA"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonDivide"
@@ -73,7 +75,8 @@
                 android:text="/"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
         </LinearLayout>
 
         <!--        2nd row-->
@@ -92,7 +95,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonEight"
@@ -104,7 +108,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonNine"
@@ -116,7 +121,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonMultiply"
@@ -126,7 +132,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#FFC300"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
         </LinearLayout>
 
         <!--        3rd row-->
@@ -145,7 +152,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonFive"
@@ -157,7 +165,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonSix"
@@ -169,7 +178,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonSubtract"
@@ -179,7 +189,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#FFC300"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
         </LinearLayout>
 
         <!--        4th row-->
@@ -198,7 +209,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonTwo"
@@ -210,7 +222,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonThree"
@@ -222,7 +235,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonAddition"
@@ -232,7 +246,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#FFC300"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
         </LinearLayout>
 
         <!--        5th row-->
@@ -251,7 +266,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonPower"
@@ -263,7 +279,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonDecimal"
@@ -275,7 +292,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#434343"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
 
             <Button
                 android:id="@+id/buttonResult"
@@ -285,7 +303,8 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:backgroundTint="#FFC300"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                style="@style/roundButton"/>
         </LinearLayout>
 
     </LinearLayout>
